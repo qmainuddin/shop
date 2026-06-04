@@ -50,9 +50,9 @@
   {
     "agent": "devops",
     "title": "Commit milestone 1 when all tests pass",
-    "status": "in_progress",
-    "pct": 80,
-    "eta": "5m",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
     "blocker": null
   }
 ]
