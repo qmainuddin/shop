@@ -1,0 +1,58 @@
+[
+  {
+    "agent": "database",
+    "title": "user-svc DB schema (users table + migration)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "database",
+    "title": "product-svc DB schema (products table + migration)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "user-svc: register/login with JWT",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "product-svc: list + view products with Redis cache",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "qa",
+    "title": "user-svc tests: register, login, JWT validation",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "qa",
+    "title": "product-svc tests: list products, seed data",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Commit milestone 1 when all tests pass",
+    "status": "in_progress",
+    "pct": 80,
+    "eta": "5m",
+    "blocker": null
+  }
+]

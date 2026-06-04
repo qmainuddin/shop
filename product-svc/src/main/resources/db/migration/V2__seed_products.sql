@@ -1,0 +1,11 @@
+INSERT INTO products (id, name, description, price, stock_quantity, image_url, created_at) VALUES
+('a1b2c3d4-e5f6-7890-abcd-ef1234567890', 'Wireless Noise-Cancelling Headphones', 'Premium over-ear headphones with active noise cancellation and 30-hour battery life.', 149.99, 42, 'https://images.example.com/headphones.jpg', NOW()),
+('b2c3d4e5-f6a7-8901-bcde-f12345678901', 'Adjustable Laptop Stand', 'Ergonomic aluminium laptop stand with six height settings. Compatible with 10–17 inch laptops.', 39.95, 120, 'https://images.example.com/laptop-stand.jpg', NOW()),
+('c3d4e5f6-a7b8-9012-cdef-123456789012', 'Mechanical Keyboard', 'Compact TKL mechanical keyboard with Cherry MX Brown switches and RGB backlighting.', 89.00, 65, 'https://images.example.com/keyboard.jpg', NOW()),
+('d4e5f6a7-b8c9-0123-defa-234567890123', 'USB-C Hub 7-in-1', 'Multiport adapter with HDMI 4K, 3x USB-A, USB-C PD 100W, SD and microSD card readers.', 34.99, 200, 'https://images.example.com/usb-hub.jpg', NOW()),
+('e5f6a7b8-c9d0-1234-efab-345678901234', 'Webcam 1080p HD', 'Full HD webcam with built-in dual microphone, autofocus, and low-light correction.', 59.99, 88, 'https://images.example.com/webcam.jpg', NOW()),
+('f6a7b8c9-d0e1-2345-fabc-456789012345', 'Desk LED Lamp', 'Touch-dimmable LED lamp with three colour temperatures and USB-A charging port.', 27.50, 155, 'https://images.example.com/desk-lamp.jpg', NOW()),
+('a7b8c9d0-e1f2-3456-abcd-567890123456', 'Ergonomic Mouse', 'Vertical ergonomic wireless mouse that reduces wrist strain during long work sessions.', 44.99, 73, 'https://images.example.com/ergonomic-mouse.jpg', NOW()),
+('b8c9d0e1-f2a3-4567-bcde-678901234567', 'Monitor Privacy Screen', 'Anti-glare privacy filter for 27-inch monitors. Blocks side-view at angles beyond 60 degrees.', 22.00, 50, 'https://images.example.com/privacy-screen.jpg', NOW()),
+('c9d0e1f2-a3b4-5678-cdef-789012345678', 'Cable Management Kit', 'Set of 50 reusable velcro cable ties, 10 adhesive cable clips, and 2 cable boxes.', 15.99, 300, 'https://images.example.com/cable-kit.jpg', NOW()),
+('d0e1f2a3-b4c5-6789-defa-890123456789', 'Smart Power Strip', 'Wi-Fi-enabled power strip with 4 individually controlled outlets and 2 USB-A ports. Works with Alexa and Google Home.', 49.99, 95, 'https://images.example.com/power-strip.jpg', NOW());

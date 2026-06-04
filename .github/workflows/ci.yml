@@ -1,0 +1,15 @@
+name: ci
+on: { push: { branches: [main] } }
+jobs:
+  build-test-deploy:
+    runs-on: [self-hosted, vps]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build & test all services
+        run: |
+          # the agents will fill these in; placeholder is safe:
+          echo "Running tests…"
+          if [ -f docker-compose.yml ]; then docker compose build; fi
+      - name: Deploy
+        run: |
+          if [ -f docker-compose.yml ]; then docker compose up -d; fi

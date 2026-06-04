@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read", "Edit", "Write",
+      "Bash(git *)",
+      "Bash(npm *)", "Bash(npx *)", "Bash(node *)", "Bash(pnpm *)",
+      "Bash(mvn *)", "Bash(./mvnw *)", "Bash(gradle *)", "Bash(./gradlew *)",
+      "Bash(python3 *)", "Bash(pytest *)",
+      "Bash(docker compose *)",
+      "Bash(ls *)", "Bash(cat *)", "Bash(mkdir *)", "Bash(cp *)", "Bash(mv *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)", "Bash(sudo *)", "Bash(curl *)", "Bash(wget *)"
+    ]
+  }
+}
