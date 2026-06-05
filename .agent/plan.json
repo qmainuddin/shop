@@ -82,6 +82,14 @@
   {
     "agent": "devops",
     "title": "Commit milestone 2 when all tests pass",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Push milestone 2 to GitHub (order-svc)",
     "status": "in_progress",
     "pct": 50,
     "eta": "5m",
