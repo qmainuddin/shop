@@ -54,5 +54,37 @@
     "pct": 100,
     "eta": "0",
     "blocker": null
+  },
+  {
+    "agent": "database",
+    "title": "order-svc DB schema (orders + order_items tables + migration)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "order-svc: place order, publish order.placed to RabbitMQ",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "qa",
+    "title": "order-svc tests: place order, get order, RabbitMQ mock",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Commit milestone 2 when all tests pass",
+    "status": "in_progress",
+    "pct": 50,
+    "eta": "5m",
+    "blocker": null
   }
 ]
