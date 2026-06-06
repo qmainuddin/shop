@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-svc
+          uri: http://user-svc:8081
+          predicates:
+            - Path=/api/users/**
+        - id: product-svc
+          uri: http://product-svc:8082
+          predicates:
+            - Path=/api/products/**
+        - id: order-svc
+          uri: http://order-svc:8083
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - JwtAuth
+
+jwt:
+  secret: "bXlzdXBlcnNlY3JldGtleWZvcnRoZXVzZXJzZXJ2aWNlam9l"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
