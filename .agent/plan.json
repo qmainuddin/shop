@@ -114,6 +114,14 @@
   {
     "agent": "devops",
     "title": "Commit & push milestone 3 (gateway) to GitHub",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Write README.md with project description, install, run, and deploy docs",
     "status": "in_progress",
     "pct": 50,
     "eta": "10m",
