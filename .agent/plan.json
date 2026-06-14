@@ -122,8 +122,32 @@
   {
     "agent": "devops",
     "title": "Write README.md with project description, install, run, and deploy docs",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "order-svc: Redis wrapper (OrderCacheService) for caching order details",
     "status": "in_progress",
-    "pct": 50,
+    "pct": 10,
+    "eta": "30m",
+    "blocker": null
+  },
+  {
+    "agent": "qa",
+    "title": "order-svc: tests for Redis cache (hit, miss, eviction)",
+    "status": "todo",
+    "pct": 0,
+    "eta": "20m",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Build, test, commit & push order-svc Redis cache",
+    "status": "todo",
+    "pct": 0,
     "eta": "10m",
     "blocker": null
   }

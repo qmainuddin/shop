@@ -2,10 +2,11 @@ package com.shop.ordersvc.dto;
 
 import com.shop.ordersvc.model.OrderItem;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class OrderItemResponse {
+public class OrderItemResponse implements Serializable {
 
     private UUID id;
     private UUID productId;

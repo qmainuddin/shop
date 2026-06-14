@@ -2,13 +2,14 @@ package com.shop.ordersvc.dto;
 
 import com.shop.ordersvc.model.Order;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class OrderResponse {
+public class OrderResponse implements Serializable {
 
     private UUID id;
     private UUID userId;
