@@ -130,25 +130,73 @@
   {
     "agent": "backend",
     "title": "order-svc: Redis wrapper (OrderCacheService) for caching order details",
-    "status": "in_progress",
-    "pct": 10,
-    "eta": "30m",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
     "blocker": null
   },
   {
     "agent": "qa",
     "title": "order-svc: tests for Redis cache (hit, miss, eviction)",
-    "status": "todo",
-    "pct": 0,
-    "eta": "20m",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
     "blocker": null
   },
   {
     "agent": "devops",
     "title": "Build, test, commit & push order-svc Redis cache",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "business-analyst",
+    "title": "Write MILESTONE-4.md proposal doc (inventory-svc milestone)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "database",
+    "title": "inventory-svc DB schema (inventory table + Flyway migration)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "inventory-svc: Spring Boot service (CRUD, reserve/release stock, port 8084)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "gateway: add /api/inventory/** route to inventory-svc:8084",
+    "status": "in_progress",
+    "pct": 50,
+    "eta": "10m",
+    "blocker": null
+  },
+  {
+    "agent": "qa",
+    "title": "inventory-svc: tests (list, adjust stock, reserve, release)",
+    "status": "in_progress",
+    "pct": 30,
+    "eta": "15m",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Commit & push milestone 4 (inventory-svc + gateway update) to GitHub",
     "status": "todo",
     "pct": 0,
     "eta": "10m",
-    "blocker": null
+    "blocker": "gateway update + QA tests must pass first"
   }
 ]

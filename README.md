@@ -10,17 +10,17 @@ Browser / API Client
         ▼
   [ gateway :8080 ]  ← JWT filter, single public entry (/api)
         │
-   ┌────┼────┬────────┐
-   ▼    ▼    ▼        ▼
-user  product  order  (analytics — planned)
--svc   -svc    -svc
-:8081  :8082   :8083
-  │      │       │
-  └──────┴───────┘
-         │
-  ┌──────┼──────────┐
-  ▼      ▼          ▼
-Postgres Redis   RabbitMQ
+   ┌────┼────┬──────────────┐
+   ▼    ▼    ▼              ▼
+user  product  order  inventory  (analytics — planned)
+-svc   -svc    -svc     -svc
+:8081  :8082   :8083    :8084
+  │      │       │         │
+  └──────┴───────┴─────────┘
+                │
+  ┌─────────────┼──────────┐
+  ▼             ▼          ▼
+Postgres      Redis   RabbitMQ
 ```
 
 | Service | Language | Description |
@@ -29,6 +29,7 @@ Postgres Redis   RabbitMQ
 | `user-svc` | Java / Spring Boot | User registration and login. Issues JWT tokens. |
 | `product-svc` | Java / Spring Boot | Product catalog. Hot reads cached in Redis. |
 | `order-svc` | Java / Spring Boot | Order placement. Publishes `order.placed` events to RabbitMQ. |
+| `inventory-svc` | Java / Spring Boot | Inventory management. Stock levels per product, reserve/release for orders. |
 
 Shared infrastructure (PostgreSQL, Redis, RabbitMQ) runs on the external Docker network `stacknet`.
 
@@ -104,6 +105,17 @@ mvn spring-boot:run
 # Starts on http://localhost:8083
 ```
 
+### inventory-svc
+
+```bash
+cd inventory-svc
+export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/shop
+export SPRING_DATASOURCE_USERNAME=shop
+export SPRING_DATASOURCE_PASSWORD=shop
+mvn spring-boot:run
+# Starts on http://localhost:8084
+```
+
 ### gateway
 
 ```bash
@@ -120,10 +132,11 @@ mvn spring-boot:run
 Each service has its own unit/integration test suite. Run them individually:
 
 ```bash
-cd user-svc    && mvn test
-cd product-svc && mvn test
-cd order-svc   && mvn test
-cd gateway     && mvn test
+cd user-svc      && mvn test
+cd product-svc   && mvn test
+cd order-svc     && mvn test
+cd inventory-svc && mvn test
+cd gateway       && mvn test
 ```
 
 Or run all services in Docker (uses H2/mocks — no real infra needed):
@@ -139,10 +152,11 @@ docker compose -f docker-compose.test.yml up --abort-on-container-exit
 Each service has a multi-stage `Dockerfile`. Build them individually:
 
 ```bash
-docker build -t shop/gateway:latest     ./gateway
-docker build -t shop/user-svc:latest    ./user-svc
-docker build -t shop/product-svc:latest ./product-svc
-docker build -t shop/order-svc:latest   ./order-svc
+docker build -t shop/gateway:latest       ./gateway
+docker build -t shop/user-svc:latest      ./user-svc
+docker build -t shop/product-svc:latest   ./product-svc
+docker build -t shop/order-svc:latest     ./order-svc
+docker build -t shop/inventory-svc:latest ./inventory-svc
 ```
 
 ---
@@ -230,6 +244,11 @@ All routes go through the gateway at `/api`. Public endpoints do **not** require
 | `GET` | `/api/products/{id}` | Public | Get a single product |
 | `POST` | `/api/orders` | JWT | Place an order |
 | `GET` | `/api/orders/{id}` | JWT | Get order details |
+| `GET` | `/api/inventory` | JWT | List all inventory items |
+| `GET` | `/api/inventory/{productId}` | JWT | Get stock for a product |
+| `POST` | `/api/inventory/{productId}/adjust` | JWT | Adjust stock level |
+| `POST` | `/api/inventory/{productId}/reserve` | JWT | Reserve stock for order |
+| `POST` | `/api/inventory/{productId}/release` | JWT | Release reserved stock |
 | `GET` | `/api/*/health` | Public | Health check for each service |
 
 ---
@@ -241,6 +260,7 @@ curl http://localhost:8080/actuator/health   # gateway
 curl http://localhost:8081/actuator/health   # user-svc
 curl http://localhost:8082/actuator/health   # product-svc
 curl http://localhost:8083/actuator/health   # order-svc
+curl http://localhost:8084/actuator/health   # inventory-svc
 ```
 
 ---

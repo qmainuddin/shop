@@ -19,6 +19,12 @@ spring:
             - Path=/api/orders/**
           filters:
             - JwtAuth
+        - id: inventory-svc
+          uri: http://inventory-svc:8084
+          predicates:
+            - Path=/api/inventory/**
+          filters:
+            - JwtAuth
 
 jwt:
   secret: "bXlzdXBlcnNlY3JldGtleWZvcnRoZXVzZXJzZXJ2aWNlam9l"
