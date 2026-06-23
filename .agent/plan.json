@@ -226,8 +226,48 @@
   {
     "agent": "devops",
     "title": "Commit & push milestone 5 (web + analytics + compose) to GitHub",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "database",
+    "title": "payment-svc DB schema (payments table + Flyway migration)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "payment-svc: Spring Boot service (Stripe + PayPal, demo credentials, port 8085)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "gateway: add /api/payments/** route to payment-svc:8085 with JwtAuth",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "qa",
+    "title": "payment-svc: unit tests — 16 passed (PaymentService, StripeService, PayPalService, Controller)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Build, run all tests, commit & push milestone 6 (payment-svc)",
     "status": "in_progress",
-    "pct": 50,
+    "pct": 80,
     "eta": "10m",
     "blocker": null
   }

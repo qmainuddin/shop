@@ -1,0 +1,40 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: payment-svc
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://db:5432/shop}
+    username: ${SPRING_DATASOURCE_USERNAME:shop}
+    password: ${SPRING_DATASOURCE_PASSWORD:shop}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: false
+
+payment:
+  stripe:
+    secret-key: sk_test_4eC39HqLyjWDarjtT1zdp7dc
+    webhook-secret: whsec_demo_webhook_secret
+  paypal:
+    client-id: AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aPioDV22egFPn2
+    client-secret: EIASb1lFnQmJ-9Ot3wFSFqQMb7F4gPmNVQdSnRaViI5oyGi
+    mode: sandbox
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

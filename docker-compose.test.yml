@@ -50,5 +50,15 @@ services:
     environment:
       MAVEN_OPTS: "-Xmx512m"
 
+  payment-svc-test:
+    image: maven:3.9-eclipse-temurin-21
+    working_dir: /app
+    volumes:
+      - ./payment-svc:/app
+      - maven-cache:/root/.m2
+    command: mvn test -q
+    environment:
+      MAVEN_OPTS: "-Xmx512m"
+
 volumes:
   maven-cache:

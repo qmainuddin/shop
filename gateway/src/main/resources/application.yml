@@ -25,6 +25,12 @@ spring:
             - Path=/api/inventory/**
           filters:
             - JwtAuth
+        - id: payment-svc
+          uri: http://payment-svc:8085
+          predicates:
+            - Path=/api/payments/**
+          filters:
+            - JwtAuth
 
 jwt:
   secret: "bXlzdXBlcnNlY3JldGtleWZvcnRoZXVzZXJzZXJ2aWNlam9l"
