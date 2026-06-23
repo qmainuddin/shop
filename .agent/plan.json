@@ -274,9 +274,17 @@
   {
     "agent": "devops",
     "title": "Push all commits to GitHub (origin/main)",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Push final plan.json update to GitHub",
     "status": "in_progress",
     "pct": 50,
-    "eta": "5m",
+    "eta": "2m",
     "blocker": null
   }
 ]
