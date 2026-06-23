@@ -178,25 +178,57 @@
   {
     "agent": "backend",
     "title": "gateway: add /api/inventory/** route to inventory-svc:8084",
-    "status": "in_progress",
-    "pct": 50,
-    "eta": "10m",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
     "blocker": null
   },
   {
     "agent": "qa",
-    "title": "inventory-svc: tests (list, adjust stock, reserve, release)",
-    "status": "in_progress",
-    "pct": 30,
-    "eta": "15m",
+    "title": "inventory-svc: tests (list, adjust stock, reserve, release) — 29 passed",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
     "blocker": null
   },
   {
     "agent": "devops",
     "title": "Commit & push milestone 4 (inventory-svc + gateway update) to GitHub",
-    "status": "todo",
-    "pct": 0,
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "frontend",
+    "title": "web: React+Vite storefront — product list + login page calling gateway",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "backend",
+    "title": "analytics-svc: Python FastAPI — consume order.placed from RabbitMQ, expose /metrics",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "docker-compose.yml: production compose file for all services + update CI workflow",
+    "status": "done",
+    "pct": 100,
+    "eta": "0",
+    "blocker": null
+  },
+  {
+    "agent": "devops",
+    "title": "Commit & push milestone 5 (web + analytics + compose) to GitHub",
+    "status": "in_progress",
+    "pct": 50,
     "eta": "10m",
-    "blocker": "gateway update + QA tests must pass first"
+    "blocker": null
   }
 ]

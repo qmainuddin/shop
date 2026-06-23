@@ -1,0 +1,40 @@
+# Secrets — never commit real credentials
+.env
+.env.local
+.env.*.local
+
+# Java / Maven
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+**/mvnw
+!gateway/mvnw
+!user-svc/mvnw
+!product-svc/mvnw
+!order-svc/mvnw
+!inventory-svc/mvnw
+
+# Node / Vite
+web/node_modules/
+web/dist/
+web/.vite/
+
+# Python
+analytics/__pycache__/
+analytics/.pytest_cache/
+analytics/*.pyc
+analytics/venv/
+analytics/.venv/
+scraper/__pycache__/
+scraper/*.pyc
+scraper/venv/
+scraper/.venv/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

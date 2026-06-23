@@ -1,15 +1,32 @@
 name: ci
-on: { push: { branches: [main] } }
+on:
+  push:
+    branches: [main]
 jobs:
   build-test-deploy:
     runs-on: [self-hosted, vps]
     steps:
       - uses: actions/checkout@v4
-      - name: Build & test all services
+
+      - name: Run all service tests
+        run: docker compose -f docker-compose.test.yml up --abort-on-container-exit --exit-code-from user-svc-test
+
+      - name: Build all Docker images
         run: |
-          # the agents will fill these in; placeholder is safe:
-          echo "Running tests…"
-          if [ -f docker-compose.yml ]; then docker compose build; fi
-      - name: Deploy
-        run: |
-          if [ -f docker-compose.yml ]; then docker compose up -d; fi
+          docker build -t shop/gateway:latest ./gateway
+          docker build -t shop/user-svc:latest ./user-svc
+          docker build -t shop/product-svc:latest ./product-svc
+          docker build -t shop/order-svc:latest ./order-svc
+          docker build -t shop/inventory-svc:latest ./inventory-svc
+          if [ -d analytics ] && [ -f analytics/Dockerfile ]; then docker build -t shop/analytics:latest ./analytics; fi
+          if [ -d web ] && [ -f web/Dockerfile ]; then docker build -t shop/web:latest ./web; fi
+
+      - name: Deploy with Docker Compose
+        if: ${{ hashFiles('docker-compose.yml') != '' }}
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          RABBIT_USER: ${{ secrets.RABBIT_USER }}
+          RABBIT_PASSWORD: ${{ secrets.RABBIT_PASSWORD }}
+        run: docker compose up -d
